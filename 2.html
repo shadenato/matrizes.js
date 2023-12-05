@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    
+    <!-- Monte uma matriz para quando o usuário informar um número correspondente a um mês,
+        imprima o algoritmo, o nome do mês indicado em português, a abreviatura e o nome
+        do mês em inglês. Por exemplo, o usuário digita o número 4 e o algoritmo é ativado
+        para imprimir: 4 -> Abril, Abr, April.  -->
+ 
+
+<script>
+
+let meses = Number(prompt("Informe o número do um mês:"));
+
+mes = [
+    [1, "JANEIRO", "JAN", "January"],
+    [2, "FEVEREIRO", "FEV", "February"],
+    [3, "MARÇO", "MAR", "March"],
+    [4, "ABRIL", "ABR", "April"],
+    [5, "MAIO", "MAI", "May"],
+    [6, "JUNHO", "JUN", "June"],
+    [7, "JULHO", "JUL", "July"],
+    [8, "AGOSTO", "AGO", "August"],
+    [9, "SETEMBRO", "SET", "September"],
+    [10, "OUTUBRO", "OUT", "October"],
+    [11, "NOVEMBRO", "NOV", "November"],
+    [12, "DEZEMBRO", "DEZ", "December"]
+]
+
+for (let index = 0; index < 13; index++) {
+    if (meses == index) {
+        document.write(mes[index-1]);    
+}
+}
+
+</script>
+</body>
+</html>
