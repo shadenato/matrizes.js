@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <!-- 5.	Monte a matriz A (5x6), composta de números, e a matriz B, inversa de A, ou seja, o número da
+         linha A passa a ser o número da coluna de B. Veja os exemplos a seguir. -->
+
+matrizA<br>
+[23,61,22,3,6,4]<br>
+[51,0,77,45,43,12]<br>
+[2,23,0,10,15,11]<br>
+[14,54,99,65,35,34]<br>
+[37,5,8,27,77,36]
+<br>
+<br>
+<button onclick="myFunction()">Clique para inverter a matriz!</button>
+<br>
+<br>
+<div id="resultado"></div>
+
+<script>
+function myFunction(){
+let matrizA = [[23,61,22,3,6,4],
+[51,0,77,45,43,12],
+[2,23,0,10,15,11],
+[14,54,99,65,35,34],
+[37,5,8,27,77,36]]
+
+let matrizB = [[],
+[],
+[],
+[],
+[],
+[]]
+
+for (let index = 0; index < matrizA.length; index++) {
+    matrizB[0][index] = matrizA[index][0];
+    matrizB[1][index] = matrizA[index][1];
+    matrizB[2][index] = matrizA[index][2];
+    matrizB[3][index] = matrizA[index][3];
+    matrizB[4][index] = matrizA[index][4];
+    matrizB[5][index] = matrizA[index][5];
+    
+}
+
+document.getElementById("resultado").innerHTML = "matrizB<br>[" + matrizB[0] + "] </br> [" + matrizB[1] + "] </br> [" + matrizB[2] + "] </br> [" + matrizB[3] + "] </br> [" + matrizB[4] + "] </br> [" + matrizB[5] + "]";
+
+}
+
+</script>
+
+
+
+
+
+</body>
+</html>
