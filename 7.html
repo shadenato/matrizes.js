@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 7</title>
+
+    <style>
+        table {
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+        }
+
+        /*  td {
+            border: 1px solid black;
+        } */
+    </style>
+
+</head>
+
+<body>
+
+    <!-- 7.	Leia o número da população das 5 cidades mais populosas de 20 estados.
+        Imprima a maior e a menor população e a média de população de cada estado. -->
+
+    <table align="center">
+        <th width="350px">ESTADOS BRASILEIROS</th>
+        <th width="350px">5 CIDADES MAIS POPULOSAS</th>
+        <th width="350px">POPULAÇÃO (habitantes)</th>
+        <tr align="center">
+            <td colspan="3">
+                <div id="resultado"></div>
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="3">
+                <div id="maiormenorValor"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <center><button onclick="inserirTabela()">Clique para ver os dados!</button></center></br>
+                <center><button onclick="maiormenorValor()">Escolha um estado para mostrar a maior e a menor população e a média de população desse estado.</button></center>
+            </td>
+        </tr>
+
+    </table>
+
+
+
+    <script>
+
+
+        let SP = [[12300000, "São Paulo"],
+        [1400000, "Guarulhos"],
+        [1200000, "Campinas"],
+        [833000, "São Bernardo do Campo"],
+        [698000, "Osasco"]]
+
+        let RJ = [[6750000, "Rio de Janeiro"],
+        [1100000, "São Gonçalo"],
+        [924000, "Duque de Caxias"],
+        [862000, "Nova Iguaçu"],
+        [515000, "Niterói"]]
+
+        let BA = [[2900000, "Salvador"],
+        [627000, "Feira de Santana"],
+        [341000, "Vitória da Conquista"],
+        [304000, "Camaçari"],
+        [220000, "Itabuna"]]
+
+        let MG = [[2500000, "Belo Horizonte"],
+        [699000, "Uberlândia"],
+        [679000, "Contagem"],
+        [571000, "Juiz de Fora"],
+        [444000, "Betim"]]
+
+        let CE = [[2700000, "Fortaleza"],
+        [382000, "Caucaia"],
+        [275000, "Juazeiro do Norte"],
+        [263000, "Maracanaú"],
+        [213000, "Sobral"]]
+
+        let PA = [[1500000, "Belém"],
+        [525000, "Ananindeua"],
+        [299000, "Santarém"],
+        [271000, "Marabá"],
+        [215000, "Parauapebas"]]
+
+        let RS = [[1500000, "Porto Alegre"],
+        [527000, "Caxias do Sul"],
+        [348000, "Canoas"],
+        [343000, "Pelotas"],
+        [283000, "Gravataí"]]
+
+        let PR = [[1900000, "Curitiba"],
+        [580000, "Londrina"],
+        [430000, "Maringá"],
+        [355000, "Ponta Grossa"],
+        [332000, "Cascavel"]]
+
+        let SC = [[597000, "Joinville"],
+        [508000, "Florianópolis"],
+        [250000, "São José"],
+        [362000, "Blumenau"],
+        [217000, "Criciúma"]]
+
+        let GO = [[1500000, "Goiânia"],
+        [600000, "Aparecida de Goiânia"],
+        [398000, "Anápolis"],
+        [231000, "Rio Verde"],
+        [213000, "Luziânia"]]
+
+        let MA = [[1100000, "São Luís"],
+        [258000, "Imperatriz"],
+        [170000, "Timon"],
+        [161000, "Caxias"],
+        [124000, "Codó"]]
+
+        let AM = [[2300000, "Manaus"],
+        [118000, "Parintins"],
+        [102000, "Itacoatiara"],
+        [100000, "Manacapuru"],
+        [84000, "Coari"]]
+
+        let ES = [[370000, "Vitória"],
+        [520000, "Serra"],
+        [500000, "Vila Velha"],
+        [420000, "Cariacica"],
+        [212000, "Cachoeiro de Itapemirim"]]
+
+        let PB = [[817000, "João Pessoa"],
+        [410000, "Campina Grande"],
+        [136000, "Santa Rita"],
+        [108000, "Patos"],
+        [96000, "Bayeux"]]
+
+        let RN = [[890000, "Natal"],
+        [297000, "Mossoró"],
+        [256000, "Parnamirim"],
+        [106000, "São Gonçalo do Amarante"],
+        [87000, "Macaíba"]]
+
+        let PE = [[1600000, "Recife"],
+        [700000, "Jaboatão dos Guararapes"],
+        [396000, "Olinda"],
+        [365000, "Caruaru"],
+        [349000, "Petrolina"]]
+
+        let MT = [[618000, "Cuiabá"],
+        [282000, "Várzea Grande"],
+        [234000, "Rondonópolis"],
+        [143000, "Sinop"],
+        [107000, "Tangará da Serra"]]
+
+        let AL = [[1000000, "Maceió"],
+        [240000, "Arapiraca"],
+        [170000, "Rio Largo"],
+        [112000, "Palmeira dos Índios"],
+        [108000, "União dos Palmares"]]
+
+        let PI = [[868000, "Teresina"],
+        [154000, "Parnaíba"],
+        [80000, "Picos"],
+        [59000, "Floriano"],
+        [63000, "Piripiri"]]
+
+        let SE = [[664000, "Aracaju"],
+        [185000, "Nossa Senhora do Socorro"],
+        [104000, "Lagarto"],
+        [97000, "Itabaiana"],
+        [94000, "São Cristóvão"]]
+
+        let estados = [SP, RJ, BA, MG, CE, PA, RS, PR, SC, GO, MA, AM, ES, PB, RN, PE, MT, AL, PI, SE]
+
+        let estados_nomes = ["SP", "RJ", "BA", "MG", "CE", "PA", "RS", "PR", "SC", "GO", "MA", "AM", "ES", "PB", "RN", "PE", "MT", "AL", "PI", "SE"]
+
+
+        function inserirTabela() {
+            for (let index = 0; index < estados.length; index++) {
+                document.getElementById("resultado").innerHTML += "<table><tr><td width='350px'><div id='" + estados[index] + "'></div></td><td width='350px'><div id='" + estados[index] + "_cid'></div></td><td width='350px'><div id='" + estados[index] + "_pop'></div></td></tr></table>";
+                document.getElementById(estados[index]).innerHTML += "<table><tr><td width='500px' height='120px'>" + estados_nomes[index] + "</td></tr></table>";
+
+                for (let index_2 = 0; index_2 < estados[index].length; index_2++) {
+                    document.getElementById(estados[index] + "_pop").innerHTML += "<table><tr><td width='500px'>" + (estados[index])[index_2][0].toLocaleString('pt-br') + " habitantes</td></tr></table>";
+                    document.getElementById(estados[index] + "_cid").innerHTML += "<table><tr><td width='500px'>" + (estados[index])[index_2][1] + "</td></tr></table>";
+                }
+            }
+        }
+
+        function maiormenorValor() {
+            let maiorValor = 0;
+            let menorValor = 0;
+            let mediaValor = 0;
+            let matriz = [];
+            let estado_dig = prompt("Digite a sigla do estado que deseja saber a maior população:").toUpperCase();
+            for (let index = 0; index < estados.length; index++) {
+                if (estado_dig == estados_nomes[index]) {
+                    for (let index_2 = 0; index_2 < estados[index].length; index_2++) {
+                        matriz.push([estados[index][index_2][0]])
+                        mediaValor += estados[index][index_2][0]
+                        maiorValor = Math.max(...matriz);
+                        menorValor = Math.min(...matriz);
+                    } 
+                    mediaValor = mediaValor / matriz.length;
+                }
+                document.getElementById("maiormenorValor").innerHTML = "A cidade mais populosa do Estado de " + estado_dig + " tem " + maiorValor.toLocaleString('pt-br') + ".<br> E a cidade menos populosa desse Estado tem " + menorValor.toLocaleString('pt-br') + ".<br>A média populacional é: " + mediaValor.toLocaleString('pt-br');
+            }
+            
+        }
+        
+    </script>
+
+
+</body>
+
+</html>
